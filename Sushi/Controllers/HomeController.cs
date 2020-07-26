@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sushi.DependencyAndRepositories.Repositories;
+using Sushi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,11 @@ namespace Sushi.Controllers
 {
     public class HomeController : Controller
     {
+        DataManager _dm;
+        public HomeController(DataManager dm) => _dm = dm;
         public ActionResult Index()
         {
-            return View();
+            return View(new MainViewModel() { Categories=_dm._catalog.GetCategories()});
         }
 
         public ActionResult About()

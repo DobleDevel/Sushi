@@ -386,9 +386,7 @@ namespace Sushi.Controllers
         }
 
         //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        //Выход: /Account/LogOff
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
@@ -396,7 +394,7 @@ namespace Sushi.Controllers
         }
 
         //
-        // GET: /Account/ExternalLoginFailure
+        // Ошибка внешнего входа: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {

@@ -1,4 +1,5 @@
 ﻿using Ninject;
+using Sushi.DependencyAndRepositories.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,10 @@ namespace Sushi.DepencyAndRepositories
 
         private void AddBinding()
         {
-            //kernel.Bind<,>();
+            kernel.Bind<ICategoryRepositories>().To<CatalogRepository>();
+            kernel.Bind<IOrdersRepository>().To<OrdersRepository>();
+            kernel.Bind<IProductRepositories>().To<ProductRepository>();
+            kernel.Bind<DataManager>().To<DataManager>().InSingletonScope();
         }
     }
 }

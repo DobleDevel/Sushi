@@ -1,45 +1,64 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="wrapper">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="header">
+                <div class="account-auth">
+                    @Html.Partial("_LoginPartial")
+                </div>
+                <div class="logo">
+                    <a href="index.html"><img src="/upload/images/logo.png" alt="logo.png"></a>
+                </div>
+                <a href="#" class="menuBtn">
+                    <span class="lines"></span>
+                </a>
+                <div class="mainMenu">
+                    <ul class="Menu">
+                        <li><a href="#">Меню</a></li>
+                        <li><a href="#">Доставка</a></li>
+                        <li><a href="#">Акции</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Контроль Качества</a></li>
+                        <li><a href="#">О Sushi</a></li>
+                        <li><a href="#">Корзина</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            @RenderBody()
+            <div class="footer">
+                <div class="footer-info-menu">
+                    <div class="footer-info">
+                        <a href="index.html"><img src="/upload/images/logo.png" alt="logo.png"></a>
+                        <span>Лучшие в мире суши и роллы по адрессу: Минеральные Воды, улица Пушкина, Дом Колотушкина, 6</span>
+                    </div>
+                    <div class="footer-secondmenu">
+                        <span>Подвальное меню</span>
+                        <ul>
+                            <li><a href="#">Меню</a></li>
+                            <li><a href="#">Доставка</a></li>
+                            <li><a href="#">Акции</a></li>
+                            <li><a href="#">Контакты</a></li>
+                            <li><a href="#">Контроль Качества</a></li>
+                            <li><a href="#">О Sushi</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <span>Copyright 2020 All rights saved</span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
-        </footer>
-    </div>
-
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Sushi.DependencyAndRepositories.Repositories
 {
-    interface IProductRepositories
+     public interface IProductRepositories
     {
+    }
+    public class ProductRepository : IProductRepositories
+    {
+
     }
 }
