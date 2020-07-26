@@ -316,7 +316,9 @@ body {
     }    
 }
 
-
+.passer {
+    display: none;
+}
 
 
 
