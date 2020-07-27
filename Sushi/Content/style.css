@@ -3,6 +3,12 @@ body {
     padding: 0;
 }
 
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: rgb(77, 75, 75);
+}
+
 .wrapper {
   display: flex;
   min-height: 100%;
@@ -178,8 +184,8 @@ body {
 }
 
 .footer > .footer-info-menu > .footer-info > span {
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-family: 'arial', sans-serif;
+    font-size: 16px;
     margin: 0px 20px 10px 20px;
 }
 
@@ -202,9 +208,10 @@ body {
 }
 
 .footer > .footer-info-menu > .footer-secondmenu > ul > li > a {
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-family: 'arial', sans-serif;
+    font-size: 16px;
     text-decoration: none;
+    color: black;
 }
 
 .footer > .footer-copyright {
@@ -212,10 +219,84 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-family: 'arial', sans-serif;
+    font-size: 17px;
     margin: 20px 0px 20px 0px;
 }
+
+.product_z {
+    margin: 10px 0px 40px 2px;
+}
+
+.prod_block {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.prod_block > .category.prod {
+    display: inherit;
+    flex-direction: row;
+    flex-flow: wrap;
+    flex-basis: 70%;
+    justify-content: center;
+}
+
+.prod_block > .category.prod > .item-category {
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px 15px;    
+}
+
+.prod_block > .filter_prod {
+    display: inherit;
+    flex-basis: 25%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prod_block > .filter_prod > span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: rgb(77, 75, 75);
+    font-size: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.prod_block > .filter_prod > ul {
+    width: 100%;
+    height: auto;
+}
+
+.prod_block > .filter_prod > ul > li {
+    list-style: none;
+    margin: 10px 15px;
+
+}
+
+.prod_block > .filter_prod > ul > li > a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: rgb(39, 39, 39);
+    font-size: 16px;    
+}
+
+.prod_block > .category.prod > .item-category > a {
+    text-decoration: none;
+}
+
+.prod_block > .category.prod > .item-category > a > span {
+    margin: 0px auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+
 
 @media (max-width:770px) {
     .menuBtn {
@@ -314,17 +395,12 @@ body {
         flex-direction: column;
         align-items: center;
     }    
+
+    .prod_block {
+        display: flex;
+        flex-direction: column;
+    }
 }
-
-.passer {
-    display: none;
-}
-
-
-
-
-
-
 
 
 
