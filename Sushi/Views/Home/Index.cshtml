@@ -17,14 +17,13 @@
         {
             <div class="item-category">
                 <img src="upload/images/@category.category_image" alt="сеты">
-                <a href="#" class="img-category"></a>
-                <a href="@category.categoryId"><span class="name-category">@category.category_name</span></a>
+                @Html.ActionLink(" ","Menu","Category",new { categoryId= category.categoryId },new { @class= "img-category" })
+                <a><span class="name-category">@category.category_name</span></a>
             </div>
         }
     </div>
 </div>
 
 @section scripts {
-    <script src="~/Scripts/menu.js"></script>
     <script src="~/Scripts/slider.js"></script>
 }

@@ -2,8 +2,6 @@
 using Sushi.DependencyAndRepositories.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Sushi.DepencyAndRepositories
@@ -18,7 +16,7 @@ namespace Sushi.DepencyAndRepositories
         }
         public object GetService(Type serviceType)
         {
-           return kernel.TryGet(serviceType);
+            return kernel.TryGet(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
@@ -32,6 +30,7 @@ namespace Sushi.DepencyAndRepositories
             kernel.Bind<IOrdersRepository>().To<OrdersRepository>();
             kernel.Bind<IProductRepositories>().To<ProductRepository>();
             kernel.Bind<DataManager>().To<DataManager>().InSingletonScope();
+            kernel.Bind<ICart>().To<Cart>().InSingletonScope();
         }
     }
 }

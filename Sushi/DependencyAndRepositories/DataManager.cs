@@ -7,16 +7,16 @@ namespace Sushi.DependencyAndRepositories.Repositories
 {
     public class DataManager
     {
-        public ICategoryRepositories _catalog { get; set; }
+        public ICategoryRepositories _category { get; set; }
         public IOrdersRepository _orders { get; set; }
         public IProductRepositories _product { get; set; }
         public DataManager(
-            ICategoryRepositories catalog,
+            ICategoryRepositories category,
             IOrdersRepository orders,
             IProductRepositories product
             )
         {
-            _catalog = catalog;
+            _category = category;
             _orders = orders;
             _product = product;
         }

@@ -101,10 +101,7 @@ namespace Sushi.Controllers
 
         //
         // GET: /Manage/AddPhoneNumber
-        public ActionResult AddPhoneNumber()
-        {
-            return View();
-        }
+        public ActionResult AddPhoneNumber() => View();
 
         //
         // POST: /Manage/AddPhoneNumber
@@ -271,7 +268,6 @@ namespace Sushi.Controllers
                 }
                 AddErrors(result);
             }
-
             // Это сообщение означает наличие ошибки; повторное отображение формы
             return View(model);
         }

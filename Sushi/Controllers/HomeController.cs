@@ -1,9 +1,5 @@
 ﻿using Sushi.DependencyAndRepositories.Repositories;
 using Sushi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Sushi.Controllers
@@ -12,23 +8,12 @@ namespace Sushi.Controllers
     {
         DataManager _dm;
         public HomeController(DataManager dm) => _dm = dm;
-        public ActionResult Index()
-        {
-            return View(new MainViewModel() { Categories=_dm._catalog.GetCategories()});
-        }
+        //GET: Index View
+        public ActionResult Index() => View(new MainViewModel() { Categories = _dm._category.GetCategories() });
+        //GET: About View
+        public ActionResult About() => View();
+        //GET: Contact View
+        public ActionResult Contact() => View();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

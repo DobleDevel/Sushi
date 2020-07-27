@@ -1,0 +1,33 @@
+﻿@using Sushi.Models
+@model Sushi.Models.CategoryViewModel
+@{
+    ViewBag.Title = "Меню";
+}
+<div class="content">
+    <h1 class="product_z">Каталог товаров</h1>
+    <div class="prod_block">
+        <div class="filter_prod">
+            <span>
+                МЕНЮ
+            </span>
+            <ul>
+                @foreach (Category category in Model.categories)
+                {
+                <li>
+                    @Html.ActionLink(category.category_name, "Menu", new { categoryId = category.categoryId })
+                </li>
+                }
+            </ul>
+        </div>
+        <div class="category prod">
+            @foreach (Production production in Model.productions)
+            {
+                <div class="item-category">
+                    <img src="upload/images/сеты.jpg" alt="сеты">
+                    <a href="#" class="img-category"></a>
+                    <a href="#"><span class="name-category">@production.product_name</span></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

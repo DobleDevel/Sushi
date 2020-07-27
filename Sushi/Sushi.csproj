@@ -185,6 +185,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DependencyAndRepositories\NinjectDependencyResolver.cs" />
     <Compile Include="DependencyAndRepositories\DataManager.cs" />
+    <Compile Include="DependencyAndRepositories\Repositories\ICart.cs" />
     <Compile Include="DependencyAndRepositories\Repositories\ICategoryRepositories.cs" />
     <Compile Include="DependencyAndRepositories\Repositories\IOrdersRepository.cs" />
     <Compile Include="DependencyAndRepositories\Repositories\IProductRepositories.cs" />
@@ -193,6 +194,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -247,11 +249,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Category\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Catalog\" />
-    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
