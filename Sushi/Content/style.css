@@ -224,8 +224,10 @@ h1 {
     margin: 20px 0px 20px 0px;
 }
 
-.product_z {
+.product_z,
+.delivery_z {
     margin: 10px 0px 40px 2px;
+    color: green;
 }
 
 .prod_block {
@@ -296,6 +298,63 @@ h1 {
     font-size: 20px;
     text-decoration: none;
 }
+
+.delivery-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: wrap;
+    margin: 20px 0px;
+}
+
+.delivery-info > div > p {
+    display: inherit;
+    flex-basis: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    margin: 0px 0px 40px 0px;
+}
+
+.delivery-info > img {
+    display: inherit;
+    flex-basis: 30%;
+    max-width: 385px;
+    width: 100%;
+    height: auto;
+    margin: 40px 20px 40px 0px;
+}
+
+.delivery-info > p {
+    display: inherit;
+    flex-basis: 60%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    margin: 0px 20px;
+}
+
+.delivery-info > .outro {
+    display: inherit;
+    width: 100%;
+    justify-content: center;
+    margin: 40px 0px 0px 0px;
+}
+
+.delivery-info > .outro > span {
+    margin: 0px auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 5vh;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(105, 165, 16);
+}
+
 
 
 @media (max-width:770px) {
@@ -399,6 +458,16 @@ h1 {
     .prod_block {
         display: flex;
         flex-direction: column;
+    }
+}
+
+@media (max-width:1200px) {
+    .delivery-info > img {
+        flex-basis: 100%;
+    }
+
+    .delivery-info > p {
+        flex-basis: 100%;
     }
 }
 
