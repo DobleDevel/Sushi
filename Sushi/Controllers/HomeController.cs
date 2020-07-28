@@ -15,5 +15,7 @@ namespace Sushi.Controllers
         //GET: Contact View
         public ActionResult Contact() => View();
 
+        public ActionResult Delivery() => View();
+
     }
 }
