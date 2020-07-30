@@ -36,6 +36,8 @@ namespace Sushi.Models
         public DbSet<Production> Productions { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Basket> Baskets { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

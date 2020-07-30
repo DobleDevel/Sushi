@@ -10,6 +10,8 @@ namespace Sushi.DependencyAndRepositories.Repositories
         void AddProduct(Production production);
         void RemoveProduct(int id);
         List<Production> GetProducts();
+
+        Production GetProductFromId(int id);
     }
     public class ProductRepository : IProductRepositories
     {
@@ -22,6 +24,8 @@ namespace Sushi.DependencyAndRepositories.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Production GetProductFromId(int id) => db.Productions.Find(id);
 
         public List<Production> GetProducts() => db.Productions.ToList();
 

@@ -279,6 +279,7 @@ h1 {
     color: #663300;
     border: #CCCCFF 0.4px solid;
     border-radius: 2px;
+    cursor:pointer;
 }
 
 .prod_block > .category.prod > .item-category > .prod_btn > *::before {

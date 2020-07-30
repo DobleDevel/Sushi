@@ -8,7 +8,13 @@ namespace Sushi.Controllers
     public class CategoryController : Controller
     {
         private DataManager _dm { get; set; }
-        public CategoryController(DataManager dm) => _dm = dm;
+        private ICart _cart { get; set; }
+        public CategoryController(DataManager dm, ICart cart)
+        {
+            _dm = dm;
+            _cart = cart;
+        }
+
         public ActionResult Menu(int? categoryId)
         {   categoryId = categoryId ?? 1;
             return View(new CategoryViewModel()
@@ -20,6 +26,11 @@ namespace Sushi.Controllers
 
 
             });
+        }
+        public void AddCart(int id)
+        {   
+            if(!Cart.ProdExist(id))
+            _cart.AddToCart(_dm._product.GetProductFromId(id));
         }
     }
 }

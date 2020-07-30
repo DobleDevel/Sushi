@@ -7,7 +7,13 @@ namespace Sushi.Controllers
     public class HomeController : Controller
     {
         DataManager _dm;
-        public HomeController(DataManager dm) => _dm = dm;
+        ICart _cart;
+        public HomeController(DataManager dm, ICart cart)
+        {
+            _dm = dm;
+            _cart = cart;
+        }
+
         //GET: Index View
         public ActionResult Index() => View(new MainViewModel() { Categories = _dm._category.GetCategories() });
         //GET: About View
@@ -17,5 +23,6 @@ namespace Sushi.Controllers
 
         public ActionResult Delivery() => View();
 
+        public ActionResult Cart() => View(_cart.GetProductionsCart());
     }
 }

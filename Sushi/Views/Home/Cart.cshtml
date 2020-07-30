@@ -1,0 +1,41 @@
+﻿@using Sushi.Models
+@using Sushi.DependencyAndRepositories.Repositories
+@model List<Production>
+    <div class="content">
+        @if (Model.Count() != 0)
+        {
+            <h1 class="product_z">Корзина</h1>
+            <div class="prod_block" style="justify-content:center">
+                <div class="category prod">
+                    @foreach (Production production in Model)
+                    {
+                        <div class="item-category">
+                            <img src="~/upload/images/@production.product_image" alt="сеты">
+                            <a href="#" class="img-category"></a>
+                            <a href="#"><span class="name-category">@production.product_name</span></a>
+                            <div class="prod_btn">
+                                @if (!Sushi.DependencyAndRepositories.Repositories.Cart.ProdExist(production.productionId))
+                                {
+
+                                    <a prod-id="@production.productionId" class="basket_btn">В корзину</a>
+                                    <a href="#" class="buy_btn">Купить</a>
+                                }
+                                else
+                                {
+                                    <a prod-id="@production.productionId" class="basket_btn_added">Добавлено</a>
+                                    <a href="#" class="buy_btn">Купить</a>
+                                }
+
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+            <h1 style="text-align:end">Итого: @Cart.GetResultSumm() руб.</h1>
+        }
+        else
+        {
+            <h1 class="product_z" style="margin:auto;margin-top:20px;margin-bottom:20px">Корзина пуста!</h1>
+        }
+</div>

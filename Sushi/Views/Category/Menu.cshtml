@@ -22,16 +22,45 @@
         <div class="category prod">
             @foreach (Production production in Model.productions)
             {
-                <div class="item-category">
-                    <img src="~/upload/images/@production.product_image" alt="сеты">
-                    <a href="#" class="img-category"></a>
-                    <a href="#"><span class="name-category">@production.product_name</span></a>
-                </div>
+            <div class="item-category">
+                <img src="~/upload/images/@production.product_image" alt="сеты">
+                <a href="#" class="img-category"></a>
+                <a href="#"><span class="name-category">@production.product_name</span></a>
                 <div class="prod_btn">
-                    <a href="#" class="basket_btn">В корзину</a>
-                    <a href="#" class="buy_btn">Купить</a>
+                    @if (!Sushi.DependencyAndRepositories.Repositories.Cart.ProdExist(production.productionId))
+                    {
+
+                        <a prod-id="@production.productionId" class="basket_btn">В корзину</a>
+                        <a href="#" class="buy_btn">Купить</a>
+                    }
+                    else
+                    {
+                <a prod-id="@production.productionId" class="basket_btn_added">Добавлено</a>
+                        <a href="#" class="buy_btn">Купить</a>
+                    }
+
                 </div>
+            </div>
+                
             }
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        $('.basket_btn').click((e) => {
+            let _id = e.currentTarget.attributes[0].value;
+            $.ajax({
+                url: "AddCart",
+                data: { id: _id },
+                method: "GET"
+            }).done(() => {
+                $(e.currentTarget).html("Добавлено");
+                e.currentTarget.classList = "basket_btn_added";
+                $('#cartcount').text(Number($('#cartcount').text()) + 1);
+                $(e.currentTarget).off();
+            });
+        });
+        
+    </script>
+    }

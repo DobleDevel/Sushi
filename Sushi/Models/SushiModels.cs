@@ -45,4 +45,14 @@ namespace Sushi.Models
         [Display(Name = "Изображение")]
         public string category_image { get; set; }
     }
+    public class Basket
+    {
+        public int basketId { get; set; }
+        [Display(Name = "Итоговая сумма заказа")]
+        [Required]
+        public decimal basket_result { get; set; }
+        [Display(Name = "Описание заказа")]
+        [Required]
+        public string basket_description { get; set; }
+    }
 }
