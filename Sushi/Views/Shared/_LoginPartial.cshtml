@@ -1,12 +1,69 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using Sushi.Models
+@model LoginViewModel
+@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-        
-        @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "obl", style= "color:#ED5B00" })
-        @Html.ActionLink("Выйти", "LogOff", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class="obl" })
+
+    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "obl", style = "color:#ED5B00" })
+    @Html.ActionLink("Выйти", "LogOff", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class = "obl" })
 }
 else
 {
     <span>Мой профиль:</span>
-    @Html.ActionLink("Войти", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "obl" })
+    <a class="obl">Войти</a>
+    <div class="modal-overlay">
+        <div class="modal">
+            <a class="close-modal">
+                <svg viewBox="0 0 20 20">
+                    <path fill="#000000" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                </svg>
+            </a>
+            <div class="modal-content">
+                @using (Ajax.BeginForm("Login", "Account", null, new AjaxOptions() { HttpMethod = "POST", OnFailure="$('#autherror').text('Логин и | или пароль неверны!');", OnSuccess= "window.location.reload();" }, new { @class = "auth-form", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <span class="login-form">Используйте для входа локальную учетную запись.</span>
+                    <hr />
+                    <span id="autherror" style="color:red"></span>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div>
+                        @Html.TextBoxFor(m => m.Login, new { placeholder = "Логин" })
+                        <span class="focus_input"></span>
+                        <span class="awesome-font">
+                            <i class="fas fa-user-alt" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "Пароль" })
+                        <span class="focus_input"></span>
+                        <span class="awesome-font">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="log_on">
+                        <button class="btn_auth">Войти</button>
+                    </div>
+                    <div class="pass_require">
+                        <span>Забыли</span>
+                        <a href="#">Логин | Пароль?</a>
+                    </div>
+                    <div class="register_acc">
+                        <a href="~/Account/Register">
+                            Создать аккаунт
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 }
+

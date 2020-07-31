@@ -54,23 +54,23 @@ namespace Sushi.Controllers
 
         //
         // GET: /Account/Login
-        [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
-        {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
-        }
+        //[AllowAnonymous]
+        //public ActionResult Login(string returnUrl)
+        //{
+        //    ViewBag.ReturnUrl = returnUrl;
+        //    return View();
+        //}
 
         //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return new HttpStatusCodeResult(401);
             }
 
             // Сбои при входе не приводят к блокированию учетной записи
@@ -79,15 +79,13 @@ namespace Sushi.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToLocal("/Home/Index");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
+                    return new HttpStatusCodeResult(500);
                 default:
-                    ModelState.AddModelError("", "Неудачная попытка входа.");
-                    return View(model);
+                    return new HttpStatusCodeResult(500);
             }
         }
 

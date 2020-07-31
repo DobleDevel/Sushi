@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
 </head>
@@ -13,7 +15,7 @@
         <div class="container">
             <div class="header">
                 <div class="account-auth">
-                    @Html.Partial("_LoginPartial")
+                    @Html.Partial("_LoginPartial", new Sushi.Models.LoginViewModel())
                 </div>
                 <div class="logo">
                     <a href="/"><img src="/upload/images/logo.png" alt="logo.png"></a>
@@ -24,7 +26,7 @@
                 <div class="mainMenu">
                     <ul class="Menu">
                         <li>@Html.ActionLink("Меню", "Menu", "Category", null, null)</li>
-                        <li>@Html.ActionLink("Доставка","Delivery","Home",null,null)</li>
+                        <li>@Html.ActionLink("Доставка", "Delivery", "Home", null, null)</li>
                         <li><a href="#">Акции</a></li>
                         <li><a href="#">Контакты</a></li>
                         <li><a href="#">Контроль Качества</a></li>
@@ -61,5 +63,16 @@
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/menu.js"></script>
+    <script src="~/Scripts/popup_auth.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        $('.btn_auth').click((e) => {
+            if ($('input[name="Login"]').val() == "" || $('input[name="Password"]').val() == "") {
+                e.preventDefault();
+                $('#autherror').text("Поля не могут быть пустыми");
+            }
+            else $('.auth-form').submit();
+        });
+    </script>
 </body>
 </html>
