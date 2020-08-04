@@ -8,7 +8,7 @@ namespace Sushi.DependencyAndRepositories.Repositories
     public interface ICart
     {
         void AddToCart(Production production);
-        void RemoveFromCart(Production production);
+        void RemoveFromCart(int id);
 
         List<Production> GetProductionsCart();
 
@@ -25,6 +25,6 @@ namespace Sushi.DependencyAndRepositories.Repositories
 
         public static bool ProdExist(int id) => _cartproduction.Find(prod => prod.productionId == id) == null ? false : true;
 
-        public void RemoveFromCart(Production production) => _cartproduction.Remove(production);
+        public void RemoveFromCart(int id) => _cartproduction.Remove(_cartproduction.Where(p=>p.productionId==id).FirstOrDefault());
     }
 }

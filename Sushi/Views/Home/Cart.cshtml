@@ -14,18 +14,8 @@
                             <a href="#" class="img-category"></a>
                             <a href="#"><span class="name-category">@production.product_name</span></a>
                             <div class="prod_btn">
-                                @if (!Sushi.DependencyAndRepositories.Repositories.Cart.ProdExist(production.productionId))
-                                {
-
-                                    <a prod-id="@production.productionId" class="basket_btn">В корзину</a>
+                                    @Html.ActionLink("Удалить","RemoveFromCart",new { id=production.productionId },new { @class="basket_btn" })
                                     <a href="#" class="buy_btn">Купить</a>
-                                }
-                                else
-                                {
-                                    <a prod-id="@production.productionId" class="basket_btn_added">Добавлено</a>
-                                    <a href="#" class="buy_btn">Купить</a>
-                                }
-
                             </div>
                         </div>
 

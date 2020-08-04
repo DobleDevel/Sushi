@@ -24,5 +24,11 @@ namespace Sushi.Controllers
         public ActionResult Delivery() => View();
 
         public ActionResult Cart() => View(_cart.GetProductionsCart());
+
+        public ActionResult RemoveFromCart(int id)
+        {
+            _cart.RemoveFromCart(id);
+            return RedirectToAction("Cart");
+        }
     }
 }
