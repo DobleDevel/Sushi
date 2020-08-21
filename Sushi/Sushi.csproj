@@ -217,6 +217,8 @@
     <Content Include="upload\images\CocaCola.jpg" />
     <Content Include="upload\images\logo.png" />
     <Content Include="upload\images\napitki.jpg" />
+    <Content Include="upload\images\picca.jpg" />
+    <Content Include="upload\images\salads.jpg" />
     <Content Include="upload\images\w0240-1.jpg" />
     <Content Include="upload\images\wok.jpg" />
     <Content Include="upload\images\большие-порции.jpg" />
@@ -226,7 +228,7 @@
     <Content Include="upload\images\ЗАПЕЧЁНЫЕ-РОЛЛЫ-ПОД-СЛИВОЧНО-СЫРНЫМ-СОУСОМ.jpg" />
     <Content Include="upload\images\запеченые-роллы.jpg" />
     <Content Include="upload\images\классические-роллы.jpg" />
-    <Content Include="upload\images\Мидии.jpg" />
+    <Content Include="upload\images\midii.png" />
     <Content Include="upload\images\роллы-и-суши-только-самые-свежие.jpg" />
     <Content Include="upload\images\роллы-калиформия.jpg" />
     <Content Include="upload\images\роллы-филадельфия.jpg" />
